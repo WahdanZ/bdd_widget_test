@@ -9,7 +9,7 @@ class GeneratorOptions {
     bool? integrationTest
   })  : stepFolder = stepFolderName ?? _stepFolderName,
         testMethodName = testMethodName ?? _defaultTestName,
-        externalSteps = externalSteps ?? const []
+        externalSteps = externalSteps ?? const [],
         integrationTest =. integrationTest ?? false;
 
   factory GeneratorOptions.fromMap(Map<String, dynamic> json) =>
@@ -17,7 +17,7 @@ class GeneratorOptions {
         testMethodName: json['testMethodName'] as String?,
         externalSteps: (json['externalSteps'] as List?)?.cast<String>(),
         stepFolderName: json['stepFolderName'] as String?,
-        stepFolderName: json['integration_test'] as bool ,
+        stepFolderName: json['integrationTest'] as bool ,
 
       );
 
