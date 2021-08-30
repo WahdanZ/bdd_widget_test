@@ -10,7 +10,7 @@ class GeneratorOptions {
   })  : stepFolder = stepFolderName ?? _stepFolderName,
         testMethodName = testMethodName ?? _defaultTestName,
         externalSteps = externalSteps ?? const [],
-        integrationTest =. integrationTest ?? false;
+        integrationTest = integrationTest ?? false;
 
   factory GeneratorOptions.fromMap(Map<String, dynamic> json) =>
       GeneratorOptions(
