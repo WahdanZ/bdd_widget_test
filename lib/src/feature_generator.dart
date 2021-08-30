@@ -6,13 +6,16 @@ const _setUpMethodName = 'bddSetUp';
 const _tearDownMethodName = 'bddTearDown';
 
 String generateFeatureDart(
-    List<BddLine> lines, List<StepFile> steps, String testMethodName) {
+    List<BddLine> lines, List<StepFile> steps, String testMethodName , bool integrationTest) {
   final sb = StringBuffer();
   sb.writeln('// GENERATED CODE - DO NOT MODIFY BY HAND');
   sb.writeln('// ignore_for_file: unused_import, directives_ordering');
   sb.writeln();
   sb.writeln('import \'package:flutter/material.dart\';');
   sb.writeln('import \'package:flutter_test/flutter_test.dart\';');
+  if(integrationTest){
+    sb.writeln('import \'package:integration_test/integration_test.dart\';');
+  }
   sb.writeln();
 
   var featureTestMethodNameOverride = testMethodName;
@@ -35,7 +38,9 @@ String generateFeatureDart(
 
   sb.writeln();
   sb.writeln('void main() {');
-
+  if(integrationTest){
+  sb.writeln('IntegrationTestWidgetsFlutterBinding.ensureInitialized();');
+  }
   final features = splitWhen<BddLine>(
       lines.skipWhile((value) => value.type != LineType.feature), // skip header
       (e) => e.type == LineType.feature);

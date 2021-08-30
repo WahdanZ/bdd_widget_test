@@ -6,6 +6,7 @@ class GeneratorOptions {
     String? testMethodName,
     List<String>? externalSteps,
     String? stepFolderName,
+    bool integrationTest = false
   })  : stepFolder = stepFolderName ?? _stepFolderName,
         testMethodName = testMethodName ?? _defaultTestName,
         externalSteps = externalSteps ?? const [];
@@ -15,6 +16,8 @@ class GeneratorOptions {
         testMethodName: json['testMethodName'] as String?,
         externalSteps: (json['externalSteps'] as List?)?.cast<String>(),
         stepFolderName: json['stepFolderName'] as String?,
+        stepFolderName: json['integration_test'] as bool ?: false,
+
       );
 
   final String stepFolder;

@@ -38,6 +38,7 @@ class FeatureFile {
         _lines,
         getStepFiles(),
         generatorOptions.testMethodName,
+        generatorOptions.integrationTest
       );
 
   List<StepFile> getStepFiles() => _stepFiles;
