@@ -17,7 +17,7 @@ class GeneratorOptions {
         testMethodName: json['testMethodName'] as String?,
         externalSteps: (json['externalSteps'] as List?)?.cast<String>(),
         stepFolderName: json['stepFolderName'] as String?,
-        integrationTest: json['integrationTest'] as bool ,
+        integrationTest: json['integrationTest'] as bool? ,
 
       );
 
